@@ -1,54 +1,11 @@
 $(function() {
 
- 
-    $(document).ready(function(){   
-        var $element = $('.b-portfolio');
-        var $elementReview = $('.b-review');
-        var $elementLast = $('.review__last');
 
-
-        let counter = 0;
-        $(window).scroll(function() {
-        var scroll = $(window).scrollTop() + $(window).height();
-        
-        var offset = $element.offset().top;
-        var offsetReview = $elementReview.offset().top;
-        var offsetReviewLast = $elementLast.offset().top;
-
+    $(".js-media-button").click(function(){ 
+        $(this).parent().toggleClass('partners__other');
        
-        if (scroll > offset && counter == 0) {
-            $('.counter').each(function () {
-                $(this).prop('Counter',0).animate({
-                    Counter: $(this).text()
-                }, {
-                    duration: 4000,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-                });
-            });
-            counter = 1;
-        }
-
-        if (scroll > offsetReview - 100 ) { 
-
-            $('.js-sticky').addClass('sticky');
-            $('.review__title').addClass('sticky');  
-        }
-        if (scroll < offsetReview + 1000  ) {
-            $('.js-sticky').removeClass('sticky');   
-        }
-        // if (scroll < offsetReviewLast + 1000  ) { 
-        //     $('.review__title').removeClass('sticky');  
-        // }
-
-        });
-     
-     
     });
-
-
+ 
 
     $('.navigation__item').click(function(e){
         e.preventDefault();
@@ -101,36 +58,7 @@ $(function() {
     $(document).ready(fotoCarusel);
     $(window).resize(fotoCarusel);
     //end brand carousel
-    // function myCarusel() {
-    //     var checkWidth = $(window).width();
-    //     var infoCaruselBox = $('.js-foto-carousel');
-
-    //     infoCaruselBox.addClass('owl-carousel').owlCarousel({
-            
-    //         items: 8,
-    //         loop: true,
-    //         margin: 20,
-    //         autoplay: true,
-    //         slideTransition: 'linear',
-    //         autoplayTimeout: 0,
-    //         autoplaySpeed: 6000,
-    //         autoplayHoverPause: false,
-    //         dots:false,
-    //         responsive: {
-    //             0: {
-    //                 margin: 0,
-    //                 items: 3
-    //             }, 
-    //             1950: {
-    //                 margin: 0,
-    //                 items: 10
-    //             }
-    //         }
-    //     });
-
-    // };
-    // $(document).ready(myCarusel);
-    // $(window).resize(myCarusel);
+  
 
    
     //start reviews  

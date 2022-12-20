@@ -1,6 +1,84 @@
-/* global define, exports: true, module*/
+
 ;(function(root, factory) {
   'use strict';
+
+  const items = [...document.querySelector('.b-review').getElementsByClassName('review__item')];
+  const reviewTop = document.querySelector('.b-review').offsetTop;
+  const reviewHeight =  document.querySelector('.b-review').offsetHeight;
+   
+ window.addEventListener('scroll', function() {
+   items.map((item, index )=> {  
+      const windowsHeight = window.innerHeight; 
+
+      const scrollTop = window.scrollY; 
+     
+      if (windowsHeight + scrollTop + 740 > item.offsetTop + reviewTop) {
+        item.style.opacity = '0.3';  
+      } else {
+
+        if (reviewHeight + scrollTop  + 620 < item.offsetTop + item.offsetHeight + reviewTop) {
+          item.style.opacity = '0.3';  
+        } else {
+          item.style.opacity = '1'; 
+        }
+
+      } 
+ 
+   });
+});
+ 
+ 
+ 
+ 
+
+
+  $(document).ready(function(){   
+    var $element = $('.b-portfolio');
+    var $elementReview = $('.b-review');
+
+   
+
+    let counter = 0;
+    $(window).scroll(function() {
+    var scroll = $(window).scrollTop() + $(window).height();
+    
+    var offset = $element.offset().top;
+    var offsetReview = $elementReview.offset().top; 
+   
+    if (scroll > offset && counter == 0) {
+        $('.counter').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+        counter = 1;
+    }
+
+    if (scroll > offsetReview - 100 ) { 
+
+        $('.js-sticky').addClass('sticky');
+        $('.review__title').addClass('sticky');  
+    }
+    if (scroll < offsetReview + 1000  ) {
+        $('.js-sticky').removeClass('sticky');   
+    }
+
+    // if (scroll < offsetReviewLast + 1000  ) { 
+    //     $('.review__title').removeClass('sticky');  
+    // }
+
+    }); 
+
+
+
+ 
+});
 
 
   var stopCircle = document.getElementsByClassName('about__block');
@@ -41,7 +119,7 @@ return function TinyType(
     typeSpeed = 200,
     deleteSpeed = 50,
     startDelay = 500,
-    deleteDelay = 500,
+    deleteDelay = 2000,
     cursor = ' ',
     loop = true,
     onFinished,
@@ -110,10 +188,6 @@ return function TinyType(
 });
 
 
-/************************************************
-***************** CONFIG TEST *******************
-************************************************/
-// var frases = ['Vamos testar?'];
 var frases = ['The VSЁ', 'проекты', 'комьюнити', 'новости', 'обучение'];
 TinyType('tinytype', frases, {
 // cursor: '▐',
