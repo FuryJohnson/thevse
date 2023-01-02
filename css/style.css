@@ -55,6 +55,22 @@ body {
 
 } 
 
+
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    background-color: #18191A;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 30px;
+    text-transform: none;
+    transition: all 0.75s ease;
+}
+.tooltip.active {
+    opacity: 1;
+}
+
 /*------------------------*/
 
 h1 {
@@ -1482,9 +1498,6 @@ a.active {
     text-decoration: none;
 }
 
-.btn-copy {
-    cursor: pointer;
-}
 /*------------------------*/
 .b-copyright {
     display: flex;

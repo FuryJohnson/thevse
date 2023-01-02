@@ -515,8 +515,9 @@
                         
                         <p>Отправь на <a href="#">email</a></p>
                         <a id="a1" href="mailto:thevse@gmail.com">thevse@gmail.com</a>
-                        <img class="btn btn-copy" src="img/copy.svg" data-clipboard-text="thevse@gmail.com" alt="">
+                        <img class="btn btn-copy" src="img/copy.svg" onclick="myFunction()" alt="">
                     </div>
+                    <div id="tooltip" class="tooltip">Скопировано!</div>
                 </div>
             </div>
         </section>
@@ -820,7 +821,26 @@
   document.execCommand("copy");
   $temp.remove();
 }
-new ClipboardJS('.btn');
+
+
+function myFunction() {
+  //reversed email text to stop bots
+  let email = 'moc.liamg@siwel.syhr.yrrah';
+  
+  let tempInput = document.createElement('INPUT');
+  document.body.appendChild(tempInput);
+  tempInput.setAttribute('value', email.split('').reverse().join(''));
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+
+  var tooltip = document.getElementById("tooltip");
+  tooltip.classList.add('active');
+  setTimeout(() => {
+     tooltip.classList.remove('active');
+  }, 1500);
+}
     </script>
 </body>
 </html>
