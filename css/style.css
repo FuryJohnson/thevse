@@ -1481,6 +1481,10 @@ a.active {
     background: #7DCF60;
     text-decoration: none;
 }
+
+.btn-copy {
+    cursor: pointer;
+}
 /*------------------------*/
 .b-copyright {
     display: flex;

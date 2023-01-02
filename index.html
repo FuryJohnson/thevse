@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href="libs/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
 </head>
 
 <body>
@@ -514,7 +515,7 @@
                         
                         <p>Отправь на <a href="#">email</a></p>
                         <a id="a1" href="mailto:thevse@gmail.com">thevse@gmail.com</a>
-                        <img src="img/copy.svg" onclick="copyToClipboard('#a1')" alt="">
+                        <img class="btn btn-copy" src="img/copy.svg" data-clipboard-text="thevse@gmail.com" alt="">
                     </div>
                 </div>
             </div>
@@ -819,6 +820,7 @@
   document.execCommand("copy");
   $temp.remove();
 }
+new ClipboardJS('.btn');
     </script>
 </body>
 </html>
